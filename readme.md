@@ -28,3 +28,5 @@ with them.
 * IDE: IntelliJ IDEA
 
 ### [Project Plan](ProjectPlan.md)
+
+### [Time Log](TimeLog.md)
