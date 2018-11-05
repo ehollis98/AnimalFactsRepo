@@ -26,3 +26,5 @@ with them.
 * Unit Testing
   * JUnit tests to achieve 80%+ code coverage 
 * IDE: IntelliJ IDEA
+
+### [Project Plan](ProjectPlan.md)
