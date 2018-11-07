@@ -11,15 +11,15 @@ public class RandomAnimalTest {
         RandomAnimal animal01 = new RandomAnimal();
         Response response =  animal01.getMessage();
 
-        System.out.println(response.getEntity().toString());
         String result = response.getEntity().toString();
+
         assertEquals("{\n" +
                 "\"animal\":{\n" +
                 "\"name\":\"snake\",\n" +
                 "\"fact\": \"snakes have leg bones\"\n" +
                 "}\n" +
                 "}", result);
-
-
     }
+
+
 }
