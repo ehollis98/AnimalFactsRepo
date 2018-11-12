@@ -2,15 +2,14 @@ package entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Random;
 
 /**
  * The type Animal.
  */
+@Entity(name = "Animal")
+@Table(name ="animal")
 public class Animal {
 
     /**

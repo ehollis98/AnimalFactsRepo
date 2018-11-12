@@ -25,4 +25,11 @@ public class FactDAO {
         return facts;
     }
 
+    public Fact getById(int id){
+        Session session = sessionFactory.openSession();
+        Fact fact = session.get(Fact.class, id);
+        session.close();
+        return fact;
+    }
+
 }

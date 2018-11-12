@@ -14,14 +14,22 @@ public class AnimalDAO {
 
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
-    public List<Animal> getAllFacts() {
+    public List<Animal> getAllAnimals() {
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Animal> query = builder.createQuery(Animal.class);
         Root<Animal> root = query.from(Animal.class);
-        List<Animal> animals = session.createQuery(query).getResultList();
+        List<Animal> facts = session.createQuery(query).getResultList();
         session.close();
-        return animals;
+        return facts;
+    }
+
+
+    public Animal getById(int id){
+        Session session = sessionFactory.openSession();
+        Animal animal = session.get(Animal.class, id);
+        session.close();
+        return animal;
     }
 
 }
