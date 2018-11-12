@@ -1,6 +1,6 @@
 package persistence;
 
-import entity.Fact;
+import entity.Animal;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -9,20 +9,19 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+public class AnimalDAO {
 
-
-public class FactDAO {
 
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
-    public List<Fact> getAllFacts() {
+    public List<Animal> getAllFacts() {
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Fact> query = builder.createQuery(Fact.class);
-        Root<Fact> root = query.from(Fact.class);
-        List<Fact> facts = session.createQuery(query).getResultList();
+        CriteriaQuery<Animal> query = builder.createQuery(Animal.class);
+        Root<Animal> root = query.from(Animal.class);
+        List<Animal> animals = session.createQuery(query).getResultList();
         session.close();
-        return facts;
+        return animals;
     }
 
 }
