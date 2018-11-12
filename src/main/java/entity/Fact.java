@@ -49,19 +49,19 @@ public class Fact {
     }
 
     /**
-     * Gets random fact.
+     * Gets random number.
      *
-     * @return the random fact
+     * @return the random number
      */
-    public String getRandomFact() {
+    public int getRandomFact() {
 
 
         Random rand = new Random();
 
         int  random = rand.nextInt(61) + 1;
 
-        String fact = null;
-        return fact;
+
+        return random;
     }
 
     @Override

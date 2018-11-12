@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Random;
 
 /**
  * The type Animal.
@@ -42,5 +43,21 @@ public class Animal {
                 "id=" + id +
                 ", animal='" + animal + '\'' +
                 '}';
+    }
+
+    /**
+     * Gets random number.
+     *
+     * @return the random number
+     */
+    public int getRandomFact() {
+
+
+        Random rand = new Random();
+
+        int  random = rand.nextInt(61) + 1;
+
+
+        return random;
     }
 }
