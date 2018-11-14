@@ -2,8 +2,7 @@ package rest;
 
 import entity.Animal;
 import entity.Fact;
-import persistence.AnimalDAO;
-import persistence.FactDAO;
+import persistence.GenericDAO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -21,31 +20,31 @@ public class RestService {
 
         // Return a simple message
 
-        FactDAO factDAO = new FactDAO();
-        AnimalDAO animalDAO = new AnimalDAO();
-        List<Fact> facts = factDAO.getAllFacts();
+        GenericDAO FactDAO = new GenericDAO(Fact.class);
+        GenericDAO animalDAO = new GenericDAO(Animal.class);
+        List<Fact> facts = FactDAO.getAll();
         Random rand = new Random();
         int randomNumber = rand.nextInt(facts.size());
 
-        Fact fact = factDAO.getById(randomNumber);
-        Animal animal = animalDAO.getById(fact.getAnimalId());
-        String output = "{\"animal\":{\"name\":\"" + animal.getAnimal()+ "\",\"fact\":\"" + fact.getFact() + "\"}}";
+        Fact fact = (Fact) FactDAO.getById(randomNumber);
+        Animal animal = (Animal) animalDAO.getById(fact.getAnimalId());
+        String output = "{\"animal\":{\"name\":\"" + animal.getAnimal() + "\",\"fact\":\"" + fact.getFact() + "\"}}";
 
         return Response.status(200).entity(output).build();
     }
+
     @GET
     @Path("/all")
     // The Java method will produce content identified by the MIME Media type "text/plain"
     @Produces("application/json")
-    public Response getAllFacts(){
+    public Response getAllFacts() {
         String output = "";
-        FactDAO factDAO = new FactDAO();
-        AnimalDAO animalDAO = new AnimalDAO();
-        List<Fact> facts = factDAO.getAllFacts();
-        output +="{\"animal\":{";
+        GenericDAO factDAO = new GenericDAO(Fact.class);
+        GenericDAO animalDAO = new GenericDAO(Animal.class);
+        List<Fact> facts = factDAO.getAll();
+        output += "{\"animal\":{";
         //todo fix output of all animals repeats names
-        for (Fact fact:facts) {
-            output += animalDAO.getById(fact.getAnimalId()).getAnimal()+ "\n";
+        for (Fact fact : facts) {
         }
 
 

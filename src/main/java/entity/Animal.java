@@ -3,7 +3,9 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * The type Animal.
@@ -36,6 +38,9 @@ public class Animal {
     @Column(name = "animal")
     private String animal;
 
+    @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Fact> fact = new HashSet<>();
+
     @Override
     public String toString() {
         return "Animal{" +
@@ -46,5 +51,9 @@ public class Animal {
 
     public String getAnimal(){
         return animal;
+    }
+
+    public Set<Fact> getFact() {
+        return fact;
     }
 }
