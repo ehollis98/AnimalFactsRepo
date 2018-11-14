@@ -13,7 +13,7 @@ public class RestServiceTest {
         Response response =  animal01.getRandomFact();
 
         String result = response.getEntity().toString();
-        
+
     }
 
 
