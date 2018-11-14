@@ -44,19 +44,7 @@ public class Animal {
                 '}';
     }
 
-    /**
-     * Gets random number.
-     *
-     * @return the random number
-     */
-    public int getRandomFact() {
-
-
-        Random rand = new Random();
-
-        int  random = rand.nextInt(61) + 1;
-
-
-        return random;
+    public String getAnimal(){
+        return animal;
     }
 }

@@ -34,34 +34,24 @@ public class Fact {
     private int id;
 
     @Column(name = "animalId")
-    private String animalId;
+    private int animalId;
 
     @Column(name = "fact")
     private String fact;
 
-    public String getFact(int random) {
+    public String getFact() {
 
         return fact;
     }
+    public int getAnimalId() {
+
+        return animalId;
+    }
+
+
 
     public void setFact(String fact) {
         this.fact = fact;
-    }
-
-    /**
-     * Gets random number.
-     *
-     * @return the random number
-     */
-    public int getRandomFact() {
-
-
-        Random rand = new Random();
-
-        int  random = rand.nextInt(61) + 1;
-
-
-        return random;
     }
 
     @Override

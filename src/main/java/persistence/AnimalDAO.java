@@ -1,6 +1,7 @@
 package persistence;
 
 import entity.Animal;
+import entity.Fact;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -30,6 +31,10 @@ public class AnimalDAO {
         Animal animal = session.get(Animal.class, id);
         session.close();
         return animal;
+    }
+    //todo
+    public List<Fact> getFactsByAnimalId(int id){
+        return null;
     }
 
 }
