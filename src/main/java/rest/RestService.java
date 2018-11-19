@@ -62,17 +62,17 @@ public class RestService {
             int factIndex = 0;
             for (Fact fact : factList){
 
-                output +="\"" +fact.getFact() + "\"";
-                if (factIndex==0){
+                output +="\"" +fact.getFact()+ "\"";
+                if (factIndex==factList.size() - 1){
 
-                }else if (factIndex <factList.size()){
+                }else {
                     output += ",";
                 }
                 factIndex++;
             }
-            output += "}";
+            output += "]}";
         }
-
+        output +="]}";
 
         return Response.status(200).entity(output).build();
     }
