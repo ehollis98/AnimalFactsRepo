@@ -28,7 +28,7 @@ public class TestAnimalJSONReponse {
         String animalFact = animalResponse.getAnimal().getFact();
 
         //assertEquals("???", animalName);
-       // assertEquals("???", animalFact);
+       //assertEquals("???", animalFact);
 
        // assertEquals("???", response);
     }

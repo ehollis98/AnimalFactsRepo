@@ -27,7 +27,10 @@ public class RestService {
         int randomNumber = rand.nextInt(facts.size());
 
         Fact fact = (Fact) FactDAO.getById(randomNumber);
-        Animal animal = (Animal) animalDAO.getById(fact.getAnimalId());
+        Animal animal = fact.getAnimal();
+
+
+
         String output = "{\"animal\":{\"name\":\"" + animal.getAnimal() + "\",\"fact\":\"" + fact.getFact() + "\"}}";
 
         return Response.status(200).entity(output).build();
@@ -39,12 +42,12 @@ public class RestService {
     @Produces("application/json")
     public Response getAllFacts() {
         String output = "";
-        GenericDAO factDAO = new GenericDAO(Fact.class);
         GenericDAO animalDAO = new GenericDAO(Animal.class);
-        List<Fact> facts = factDAO.getAll();
+        List<Fact> animals = animalDAO.getAll();
         output += "{\"animal\":{";
         //todo fix output of all animals repeats names
         for (Fact fact : facts) {
+            fact.getFact()
         }
 
 

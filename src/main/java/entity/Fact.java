@@ -3,7 +3,9 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * The type Fact.
@@ -33,8 +35,11 @@ public class Fact {
     @GenericGenerator(name = "native",strategy = "native")
     private int id;
 
-    @Column(name = "animalId")
-    private int animalId;
+    @ManyToOne
+    @JoinColumn(name="animalId",referencedColumnName="id")
+    private Animal animal;
+
+
 
     @Column(name = "fact")
     private String fact;
@@ -43,12 +48,10 @@ public class Fact {
 
         return fact;
     }
-    public int getAnimalId() {
 
-        return animalId;
+    public Animal getAnimal(){
+        return animal;
     }
-
-
 
     public void setFact(String fact) {
         this.fact = fact;

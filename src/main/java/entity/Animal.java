@@ -53,7 +53,12 @@ public class Animal {
         return animal;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public Set<Fact> getFact() {
         return fact;
     }
+
 }
