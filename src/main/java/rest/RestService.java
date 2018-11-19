@@ -8,6 +8,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 @Path("/fact")
 public class RestService {
@@ -43,11 +44,33 @@ public class RestService {
     public Response getAllFacts() {
         String output = "";
         GenericDAO animalDAO = new GenericDAO(Animal.class);
-        List<Fact> animals = animalDAO.getAll();
-        output += "{\"animal\":{";
+        List<Animal> animalList = animalDAO.getAll();
+        output += "{\"animals\": [";
         //todo fix output of all animals repeats names
-        for (Fact fact : facts) {
-            fact.getFact()
+        int index = 0;
+        for (Animal animal : animalList) {
+
+            if (index == 0){
+                output += "{";
+            } else {
+                output += ",{";
+            }
+            index ++;
+            output +="\"name\" :\"" +animal.getAnimal() + "\",";
+            Set<Fact> factList = animal.getFact();
+            output += "\"fact\":[";
+            int factIndex = 0;
+            for (Fact fact : factList){
+
+                output +="\"" +fact.getFact() + "\"";
+                if (factIndex==0){
+
+                }else if (factIndex <factList.size()){
+                    output += ",";
+                }
+                factIndex++;
+            }
+            output += "}";
         }
 
 
