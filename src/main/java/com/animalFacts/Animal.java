@@ -1,15 +1,15 @@
 package com.animalFacts;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+//import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.Generated;
 
 @Generated("com.robohorse.robopojogenerator")
 public class Animal{
 
-	@JsonProperty("fact")
+	//@JsonProperty("fact")
 	private String fact;
 
-	@JsonProperty("name")
+	//@JsonProperty("name")
 	private String name;
 
 	public void setFact(String fact){
