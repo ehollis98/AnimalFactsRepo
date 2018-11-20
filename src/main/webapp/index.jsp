@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td>Get All Facts</td>
-            <td>/animalFact/animals/fact/all</td>
+            <td>animals/fact/all</td>
             <td>Returns all facts.</td>
         </tr>
         <tr class="active">
