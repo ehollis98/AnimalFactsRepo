@@ -85,6 +85,5 @@ public class RestService {
         output +="]}";
 
         return Response.status(200).entity(output).build();
-        logger.debug("Response " + Response.status(200).entity(output).build());
     }
 }
