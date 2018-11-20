@@ -41,7 +41,7 @@ public class RestService {
 
 
         String output = "{\"animal\":{\"name\":\"" + animal.getAnimal() + "\",\"fact\":\"" + fact.getFact() + "\"}}";
-
+        logger.debug("Output " + output);
         return Response.status(200).entity(output).build();
     }
 
@@ -53,6 +53,7 @@ public class RestService {
         String output = "";
         GenericDAO animalDAO = new GenericDAO(Animal.class);
         List<Animal> animalList = animalDAO.getAll();
+        logger.debug("Animal List " + animalList);
         output += "{\"animals\": [";
         //todo fix output of all animals repeats names
         int index = 0;
@@ -66,6 +67,7 @@ public class RestService {
             index ++;
             output +="\"name\" :\"" +animal.getAnimal() + "\",";
             Set<Fact> factList = animal.getFact();
+            logger.debug("Fact List " + factList);
             output += "\"fact\":[";
             int factIndex = 0;
             for (Fact fact : factList){
@@ -83,5 +85,6 @@ public class RestService {
         output +="]}";
 
         return Response.status(200).entity(output).build();
+        logger.debug("Response " + Response.status(200).entity(output).build());
     }
 }
