@@ -47,7 +47,7 @@
         </tr>
         <tr class="active">
             <td>Get Random Fact</td>
-            <td>/animalFact/animals/fact/random</td>
+            <td>animals/fact/random</td>
             <td>Returns a random fact.</td>
         </tr>
         <tr>
@@ -57,7 +57,7 @@
         </tr>
         <tr class="active">
             <td>Get Facts by Animal ID</td>
-            <td>/animalFact/animals/fact/{animalID}</td>
+            <td>/animals/fact/{animalID}</td>
             <td>Accepts a parameter of animal id, and returns all facts for animal.</td>
         </tr>
         </tbody>
