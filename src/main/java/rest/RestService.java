@@ -2,6 +2,8 @@ package rest;
 
 import entity.Animal;
 import entity.Fact;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDAO;
 
 import javax.ws.rs.*;
@@ -12,6 +14,9 @@ import java.util.Set;
 
 @Path("/fact")
 public class RestService {
+
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
     // The Java method will process HTTP GET requests
     @GET
     @Path("/random")
@@ -28,7 +33,10 @@ public class RestService {
         int randomNumber = rand.nextInt(facts.size());
 
         Fact fact = (Fact) FactDAO.getById(randomNumber);
+        logger.debug("Fact by Id " + fact);
+
         Animal animal = fact.getAnimal();
+        logger.debug("Animal " + animal);
 
 
 

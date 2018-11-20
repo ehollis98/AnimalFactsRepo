@@ -1,6 +1,8 @@
 package rest;
 
 import entity.Fact;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -31,6 +33,25 @@ public class RestServiceTest {
     void getByIdSuccess() {
         Object retrievedFact = dao.getById(1);
         assertEquals("Fact{id=1, fact='The heart of a shrimp is located in its head!'}", retrievedFact);
+    }
+
+
+    /**
+     * Verify successful retrieval of all facts
+     */
+    @Test
+    void getAllSuccess() {
+        List<Fact> facts = dao.getAll();
+        assertEquals(61, facts.size());
+    }
+
+    /**
+     * Verify successful delete of Fact
+     */
+    @Test
+    void deleteSuccess() {
+        dao.delete(dao.getById(1));
+        assertNull(dao.getById(1));
     }
 
 
