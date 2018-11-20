@@ -37,15 +37,15 @@ public class SearchAnimal extends HttpServlet {
 
         GenericDAO<Animal> animalDao = new GenericDAO<>(Animal.class);
 
-        if (req.getParameter("submit").equals("searchByAnimal")) {
+        if (req.getParameter("submit").equals("searchByAnimalId")) {
             logger.info("Searching by animal.");
-            req.setAttribute("animslsById", animalDao.getById(Integer.parseInt(req.getParameter("animalSearchId"))));
+            req.setAttribute("searchedAnimalById", animalDao.getById(Integer.parseInt(req.getParameter("animalSearchId"))));
         }
         else if (req.getParameter("submit").equals("searchAllAnimals")) {
             logger.info("Searching by all animals.");
             req.setAttribute("allAnimals", animalDao.getAll());
         }
-        else if (req.getParameter("submit").equals("requestJSONData")) {
+        else if (req.getParameter("submit").equals("searchRandomAnimal")) {
             logger.info("Getting JSON data.");
 
             Client client = ClientBuilder.newClient();
@@ -53,7 +53,7 @@ public class SearchAnimal extends HttpServlet {
                     client.target("http://18.219.184.166:8080/animalFacts/random");
             String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
             System.out.println("response: " + response);
-
+/*
             ObjectMapper mapper = new ObjectMapper();
 
             Response animalResponse = mapper.readValue(response, Response.class);
@@ -61,9 +61,9 @@ public class SearchAnimal extends HttpServlet {
 
             String animalName = animalResponse.getAnimal().getName();
             String animalFact = animalResponse.getAnimal().getFact();
+*/
+            req.setAttribute("randomAnimal", response);
 
-
-            req.setAttribute("jsonData", animalResponse);
         }
 
 
