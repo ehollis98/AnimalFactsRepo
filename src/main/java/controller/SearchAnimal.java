@@ -35,35 +35,104 @@ public class SearchAnimal extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        GenericDAO<Animal> animalDao = new GenericDAO<>(Animal.class);
-
-        if (req.getParameter("submit").equals("searchByAnimalId")) {
-            logger.info("Searching by animal.");
-            req.setAttribute("searchedAnimalById", animalDao.getById(Integer.parseInt(req.getParameter("animalSearchId"))));
-        }
-        else if (req.getParameter("submit").equals("searchAllAnimals")) {
-            logger.info("Searching by all animals.");
-            req.setAttribute("allAnimals", animalDao.getAll());
-        }
-        else if (req.getParameter("submit").equals("searchRandomAnimal")) {
-            logger.info("Getting JSON data.");
+        if (req.getParameter("submit").equals("getRandomAnimalDropdown")) {
+            logger.info("Getting animals as dropdown.");
 
             Client client = ClientBuilder.newClient();
-            WebTarget target =
-                    client.target("http://18.219.184.166:8080/animalFacts/animals/random");
+
+            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/dropdown");
+
+            String response = target.request(MediaType.TEXT_HTML).get(String.class);
+
+            req.setAttribute("randomAnimalDropdown", response);
+        }
+        else if (req.getParameter("submit").equals("getRandomAnimalJSON")) {
+            logger.info("Getting random animal as JSON.");
+
+            Client client = ClientBuilder.newClient();
+
+            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/random");
+
             String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
-            System.out.println("response: " + response);
-/*
-            ObjectMapper mapper = new ObjectMapper();
 
-            Response animalResponse = mapper.readValue(response, Response.class);
-            System.out.println(animalResponse.getAnimal().getName());
+            req.setAttribute("randomAnimalJSON", response);
+        }
+        else if (req.getParameter("submit").equals("getRandomAnimalXML")) {
+            logger.info("Getting random animal as XML.");
 
-            String animalName = animalResponse.getAnimal().getName();
-            String animalFact = animalResponse.getAnimal().getFact();
-*/
-            req.setAttribute("randomAnimal", response);
+            Client client = ClientBuilder.newClient();
 
+            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/random/xml");
+            //todo fix this so it returns an XML object, not string
+            String response = target.request(MediaType.APPLICATION_XML).get(String.class);
+
+            req.setAttribute("randomAnimalXML", response);
+        }
+        else if (req.getParameter("submit").equals("getRandomAnimalFactJSON")) {
+            logger.info("Getting random animal fact as JSON.");
+
+            Client client = ClientBuilder.newClient();
+
+            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/random");
+
+            String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+
+            req.setAttribute("randomAnimalFactJSON", response);
+        }
+        else if (req.getParameter("submit").equals("getRandomAnimalFactXML")) {
+            logger.info("Getting random animal fact as XML.");
+
+            Client client = ClientBuilder.newClient();
+
+            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/random/xml");
+            //todo fix this so it returns an XML object, not string
+            String response = target.request(MediaType.APPLICATION_XML).get(String.class);
+
+            req.setAttribute("randomAnimalFactXML", response);
+        }
+        else if (req.getParameter("submit").equals("getAllAnimalFactsJSON")) {
+            logger.info("Getting all animal facts as JSON.");
+
+            Client client = ClientBuilder.newClient();
+
+            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/all");
+
+            String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+
+            req.setAttribute("allAnimalFactsJSON", response);
+        }
+        else if (req.getParameter("submit").equals("getAllAnimalFactsXML")) {
+            logger.info("Getting all animal facts as XML.");
+
+            Client client = ClientBuilder.newClient();
+
+            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/all/xml");
+            //todo fix this so it returns an XML object, not string
+            String response = target.request(MediaType.APPLICATION_XML).get(String.class);
+
+            req.setAttribute("allAnimalFactsXML", response);
+        }
+        else if (req.getParameter("submit").equals("getAnimalFactsByIdJSON")) {
+            logger.info("Getting animal facts by id as JSON.");
+
+            Client client = ClientBuilder.newClient();
+
+            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/" + Integer.parseInt(req.getParameter("animalSearchId01")));
+
+            String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+
+            req.setAttribute("animalFactsByIdJSON", response);
+        }
+        else if (req.getParameter("submit").equals("getAnimalFactsByIdXML")) {
+            logger.info("Getting animal facts by id as XML.");
+
+            Client client = ClientBuilder.newClient();
+
+            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/" + Integer.parseInt(req.getParameter("animalSearchId02")) + "/xml");
+            //todo fix this so it returns an XML object, not string
+            String response = target.request(MediaType.APPLICATION_XML).get(String.class);
+
+            req.setAttribute("animalFactsByIdXML", response);
         }
 
 
