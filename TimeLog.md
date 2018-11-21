@@ -13,6 +13,7 @@
 |11/20/18| rest xml updates| 2 | |
 |11/20/18| Index.jsp updates| 0.5 | |
 |11/20/18| uploaded to AWS| 0.5 | |
+|11/20/18| JSP functionality completed, API works| 2 | |
 
 
 
