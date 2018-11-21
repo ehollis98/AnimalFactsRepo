@@ -1,11 +1,12 @@
 package controller;
 
-import com.animalFacts.Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import entity.Animal;
+import entity.Fact;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import persistence.GenericDAO;
+import rest.RestService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,10 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.IOException;
 
 /**
@@ -35,12 +35,13 @@ public class SearchAnimal extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        Client client = ClientBuilder.newClient();
+        WebTarget target;
+
         if (req.getParameter("submit").equals("getRandomAnimalDropdown")) {
             logger.info("Getting animals as dropdown.");
 
-            Client client = ClientBuilder.newClient();
-
-            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/dropdown");
+            target = client.target("http://18.219.184.166:8080/animalFacts/animals/dropdown");
 
             String response = target.request(MediaType.TEXT_HTML).get(String.class);
 
@@ -49,9 +50,7 @@ public class SearchAnimal extends HttpServlet {
         else if (req.getParameter("submit").equals("getRandomAnimalJSON")) {
             logger.info("Getting random animal as JSON.");
 
-            Client client = ClientBuilder.newClient();
-
-            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/random");
+            target = client.target("http://18.219.184.166:8080/animalFacts/animals/random");
 
             String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
@@ -60,9 +59,7 @@ public class SearchAnimal extends HttpServlet {
         else if (req.getParameter("submit").equals("getRandomAnimalXML")) {
             logger.info("Getting random animal as XML.");
 
-            Client client = ClientBuilder.newClient();
-
-            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/random/xml");
+            target = client.target("http://18.219.184.166:8080/animalFacts/animals/random/xml");
             //todo fix this so it returns an XML object, not string
             String response = target.request(MediaType.APPLICATION_XML).get(String.class);
 
@@ -71,9 +68,7 @@ public class SearchAnimal extends HttpServlet {
         else if (req.getParameter("submit").equals("getRandomAnimalFactJSON")) {
             logger.info("Getting random animal fact as JSON.");
 
-            Client client = ClientBuilder.newClient();
-
-            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/random");
+            target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/random");
 
             String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
@@ -82,9 +77,7 @@ public class SearchAnimal extends HttpServlet {
         else if (req.getParameter("submit").equals("getRandomAnimalFactXML")) {
             logger.info("Getting random animal fact as XML.");
 
-            Client client = ClientBuilder.newClient();
-
-            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/random/xml");
+            target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/random/xml");
             //todo fix this so it returns an XML object, not string
             String response = target.request(MediaType.APPLICATION_XML).get(String.class);
 
@@ -93,9 +86,7 @@ public class SearchAnimal extends HttpServlet {
         else if (req.getParameter("submit").equals("getAllAnimalFactsJSON")) {
             logger.info("Getting all animal facts as JSON.");
 
-            Client client = ClientBuilder.newClient();
-
-            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/all");
+            target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/all");
 
             String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
@@ -104,9 +95,7 @@ public class SearchAnimal extends HttpServlet {
         else if (req.getParameter("submit").equals("getAllAnimalFactsXML")) {
             logger.info("Getting all animal facts as XML.");
 
-            Client client = ClientBuilder.newClient();
-
-            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/all/xml");
+            target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/all/xml");
             //todo fix this so it returns an XML object, not string
             String response = target.request(MediaType.APPLICATION_XML).get(String.class);
 
@@ -115,9 +104,7 @@ public class SearchAnimal extends HttpServlet {
         else if (req.getParameter("submit").equals("getAnimalFactsByIdJSON")) {
             logger.info("Getting animal facts by id as JSON.");
 
-            Client client = ClientBuilder.newClient();
-
-            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/" + Integer.parseInt(req.getParameter("animalSearchId01")));
+            target = client.target("http://18.219.184.166:8080/animalFacts/animals/" + Integer.parseInt(req.getParameter("animalSearchId01")));
 
             String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
@@ -126,9 +113,7 @@ public class SearchAnimal extends HttpServlet {
         else if (req.getParameter("submit").equals("getAnimalFactsByIdXML")) {
             logger.info("Getting animal facts by id as XML.");
 
-            Client client = ClientBuilder.newClient();
-
-            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/" + Integer.parseInt(req.getParameter("animalSearchId02")) + "/xml");
+            target = client.target("http://18.219.184.166:8080/animalFacts/animals/" + Integer.parseInt(req.getParameter("animalSearchId02")) + "/xml");
             //todo fix this so it returns an XML object, not string
             String response = target.request(MediaType.APPLICATION_XML).get(String.class);
 

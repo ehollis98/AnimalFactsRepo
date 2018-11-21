@@ -87,7 +87,7 @@
             <td>Get Random Animal(Dropdown)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                   ${randomAnimalDropdown}
                 </div>
@@ -103,7 +103,7 @@
             <td>Get Random Animal(JSON)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${randomAnimalJSON}
                 </div>
@@ -119,7 +119,7 @@
             <td>Get Random Animal(XML)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${randomAnimalXML}
                 </div>
@@ -135,7 +135,7 @@
             <td>Get Random Animal Fact (JSON)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${randomAnimalFactJSON}
                 </div>
@@ -151,7 +151,7 @@
             <td>Get Random Animal Fact (XML)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${randomAnimalFactXML}
                 </div>
@@ -167,7 +167,7 @@
             <td>Get All Animal Facts (JSON)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${allAnimalFactsJSON}
                 </div>
@@ -183,7 +183,7 @@
             <td>Get All Animal Facts (XML)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${allAnimalFactsXML}
                 </div>
@@ -203,7 +203,7 @@
             <td>Get Animal Fact By Id (JSON)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${animalFactsByIdJSON}
                 </div>
@@ -223,7 +223,7 @@
             <td>Get Animal Fact By Id (XML)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${animalFactsByIdXML}
                 </div>
