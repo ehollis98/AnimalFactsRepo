@@ -34,7 +34,7 @@
         <tr>
             <td>Get Random Animal</td>
             <td><a href="/animalFacts/animals/dropdown">http://18.219.184.166:8080/animalFacts/animals/dropdown  </a></td>
-            <td>Returns a random animal as a JSON object.</td>
+            <td>Returns all animals as a drop down list.</td>
         </tr>
         <tr>
             <td>Get Random Animal</td>
@@ -44,7 +44,7 @@
         <tr class="active">
             <td>Get Random Animal</td>
             <td><a href="/animalFacts/animals/random/xml">http://18.219.184.166:8080/animalFacts/animals/random/xml</a></td>
-            <td>Returns a random animal as a XML object.</td>
+            <td>Returns a random animal as XML.</td>
         </tr>
         <tr>
             <td>Get Random Fact</td>
@@ -54,7 +54,7 @@
         <tr >
             <td>Get Random Fact</td>
             <td><a href="/animalFacts/animals/fact/random/xml">http://18.219.184.166:8080/animalFacts/animals/fact/random/xml</a></td>
-            <td>Returns a random fact.</td>
+            <td>Returns a random fact as XML.</td>
         </tr>
         <tr class="active">
             <td>Get All Facts</td>
@@ -64,7 +64,7 @@
         <tr class="active">
             <td>Get All Facts</td>
             <td><a href="/animalFacts/animals/fact/all/xml">http://18.219.184.166:8080/animalFacts/animals/fact/all/xml</a></td>
-            <td>Returns all facts.</td>
+            <td>Returns all facts as XML.</td>
         </tr>
         <tr>
             <td>Get Facts by Animal ID</td>
@@ -74,7 +74,7 @@
         <tr>
             <td>Get Facts by Animal ID</td>
             <td><a href="/animalFacts/animals/100/xml">http://18.219.184.166:8080/animalFacts/animals/{animalID}/xml</a></td>
-            <td>Accepts a parameter of animal id, and returns all facts for animal.</td>
+            <td>Accepts a parameter of animal id, and returns all facts for animal as XML.</td>
         </tr>
         </tbody>
     </table>
