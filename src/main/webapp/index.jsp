@@ -87,7 +87,7 @@
             <td>Get Random Animal(Dropdown)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                   ${randomAnimalDropdown}
                 </div>
@@ -103,7 +103,7 @@
             <td>Get Random Animal(JSON)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${randomAnimalJSON}
                 </div>
@@ -135,7 +135,7 @@
             <td>Get Random Animal Fact (JSON)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${randomAnimalFactJSON}
                 </div>
@@ -167,7 +167,7 @@
             <td>Get All Animal Facts (JSON)</td>
         </tr>
         <tr>
-            <td class="text-secondary">
+            <td>
                 <div>
                     ${allAnimalFactsJSON}
                 </div>
