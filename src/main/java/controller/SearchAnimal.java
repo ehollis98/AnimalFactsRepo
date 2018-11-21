@@ -63,8 +63,7 @@ public class SearchAnimal extends HttpServlet {
             Client client = ClientBuilder.newClient();
 
             WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/random/xml");
-            //todo fix this so it returns an XML object, not string
-            String response = target.request(MediaType.APPLICATION_XML).get(String.class);
+            String response = "<xmp>" + target.request(MediaType.APPLICATION_XML).get(String.class) + "</xmp>";
 
             req.setAttribute("randomAnimalXML", response);
         }
@@ -85,8 +84,7 @@ public class SearchAnimal extends HttpServlet {
             Client client = ClientBuilder.newClient();
 
             WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/random/xml");
-            //todo fix this so it returns an XML object, not string
-            String response = target.request(MediaType.APPLICATION_XML).get(String.class);
+            String response = "<xmp>" + target.request(MediaType.APPLICATION_XML).get(String.class) + "</xmp>";
 
             req.setAttribute("randomAnimalFactXML", response);
         }
@@ -107,8 +105,7 @@ public class SearchAnimal extends HttpServlet {
             Client client = ClientBuilder.newClient();
 
             WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/fact/all/xml");
-            //todo fix this so it returns an XML object, not string
-            String response = target.request(MediaType.APPLICATION_XML).get(String.class);
+            String response = "<xmp>" + target.request(MediaType.APPLICATION_XML).get(String.class) + "</xmp>";
 
             req.setAttribute("allAnimalFactsXML", response);
         }
@@ -129,8 +126,7 @@ public class SearchAnimal extends HttpServlet {
             Client client = ClientBuilder.newClient();
 
             WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/" + Integer.parseInt(req.getParameter("animalSearchId02")) + "/xml");
-            //todo fix this so it returns an XML object, not string
-            String response = target.request(MediaType.APPLICATION_XML).get(String.class);
+            String response = "<xmp>" + target.request(MediaType.APPLICATION_XML).get(String.class) + "</xmp>";
 
             req.setAttribute("animalFactsByIdXML", response);
         }

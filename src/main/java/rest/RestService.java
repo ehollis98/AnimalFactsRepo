@@ -12,12 +12,20 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * The type Rest service.
+ */
 @Path("/")
 public class RestService {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
-    // The Java method will process HTTP GET requests
+    /**
+     * Gets random fact.
+     *
+     * @return the random fact
+     */
+// The Java method will process HTTP GET requests
     @GET
     @Path("/fact/random")
     // The Java method will produce content identified by the MIME Media type "text/plain"
@@ -44,6 +52,11 @@ public class RestService {
         return Response.status(200).entity(output).build();
     }
 
+    /**
+     * Gets random fact xml.
+     *
+     * @return the random fact xml
+     */
     @GET
     @Path("/fact/random/xml")
     // The Java method will produce content identified by the MIME Media type "text/plain"
@@ -76,6 +89,11 @@ public class RestService {
         return Response.status(200).entity(output).build();
     }
 
+    /**
+     * Gets all facts.
+     *
+     * @return the all facts
+     */
     @GET
     @Path("/fact/all")
     // The Java method will produce content identified by the MIME Media type "text/plain"
@@ -107,6 +125,11 @@ public class RestService {
         return Response.status(200).entity(output).build();
     }
 
+    /**
+     * Gets all facts xml.
+     *
+     * @return the all facts xml
+     */
     @GET
     @Path("/fact/all/xml")
     // The Java method will produce content identified by the MIME Media type "text/plain"
@@ -131,6 +154,11 @@ public class RestService {
         return Response.status(200).entity(output).build();
     }
 
+    /**
+     * Gets random animal.
+     *
+     * @return the random animal
+     */
     @GET
     @Path("/random")
     // The Java method will produce content identified by the MIME Media type "text/plain"
@@ -157,6 +185,11 @@ public class RestService {
         return Response.status(200).entity(output).build();
     }
 
+    /**
+     * Gets random animal xml.
+     *
+     * @return the random animal xml
+     */
     @GET
     @Path("/random/xml")
     // The Java method will produce content identified by the MIME Media type "text/plain"
@@ -217,6 +250,12 @@ public class RestService {
         }
 
 
+    /**
+     * Gets animal by id.
+     *
+     * @param animalID the animal id
+     * @return the animal by id
+     */
     @GET
     @Path("/{animalID}")
     // The Java method will produce content identified by the MIME Media type "text/plain"
@@ -241,6 +280,12 @@ public class RestService {
         return Response.status(200).entity(output).build();
     }
 
+    /**
+     * Gets animal by id xml.
+     *
+     * @param animalID the animal id
+     * @return the animal by id xml
+     */
     @GET
     @Path("/{animalID}/xml")
     // The Java method will produce content identified by the MIME Media type "text/plain"
@@ -259,13 +304,18 @@ public class RestService {
         logger.debug("Animal by Id " + animal);
         logger.debug("Animal " + animal.getAnimal());
 
-        String output = "<animal><name>"+ animal.getAnimal() +"</name>"+ formatFactsXml(animal.getFact()) + "</animal>";
+        String output = "<root><animal><name>"+ animal.getAnimal() +"</name>"+ formatFactsXml(animal.getFact()) + "</animal></root>";
 
         logger.debug("Output " + output);
         return Response.status(200).entity(output).build();
     }
 
 
+    /**
+     * Gets html dropdown.
+     *
+     * @return the html dropdown
+     */
     @GET
     @Path("/dropdown")
     // The Java method will produce content identified by the MIME Media type "text/plain"

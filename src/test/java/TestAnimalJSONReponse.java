@@ -13,22 +13,21 @@ public class TestAnimalJSONReponse {
 
     @Test
     public void testAnimalFactsJSON() throws Exception {
-        //Client client = ClientBuilder.newClient();
-        //WebTarget target =
-         //       client.target("http://18.219.184.166:8080/animalFacts/animals/fact/random");
-        //String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
-        //System.out.println("response: " + response);
+        Client client = ClientBuilder.newClient();
+        WebTarget target =
+                client.target("http://18.219.184.166:8080/animalFacts/animals/fact/random");
+        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+        System.out.println("response: " + response);
 
-        //ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = new ObjectMapper();
 
-        //Response animalResponse = mapper.readValue(response, Response.class);
-        //System.out.println(animalResponse.getAnimal().getName());
+        Response animalResponse = mapper.readValue(response, Response.class);
+        System.out.println(animalResponse.getAnimal().getName());
 
-        //String animalName = animalResponse.getAnimal().getName();
-        //String animalFact = animalResponse.getAnimal().getFact();
-
+        String animalName = animalResponse.getAnimal().getName();
+        String animalFact = animalResponse.getAnimal().getFact();
         //assertEquals("???", animalName);
-       //assertEquals("???", animalFact);
+        //assertEquals("???", animalFact);
 
        // assertEquals("???", response);
     }

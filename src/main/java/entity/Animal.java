@@ -49,14 +49,29 @@ public class Animal {
                 '}';
     }
 
+    /**
+     * Get animal string.
+     *
+     * @return the string
+     */
     public String getAnimal(){
         return animal;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Gets fact.
+     *
+     * @return the fact
+     */
     public Set<Fact> getFact() {
         return fact;
     }

@@ -44,15 +44,30 @@ public class Fact {
     @Column(name = "fact")
     private String fact;
 
+    /**
+     * Gets fact.
+     *
+     * @return the fact
+     */
     public String getFact() {
 
         return fact;
     }
 
+    /**
+     * Get animal animal.
+     *
+     * @return the animal
+     */
     public Animal getAnimal(){
         return animal;
     }
 
+    /**
+     * Sets fact.
+     *
+     * @param fact the fact
+     */
     public void setFact(String fact) {
         this.fact = fact;
     }

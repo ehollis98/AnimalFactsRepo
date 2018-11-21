@@ -19,11 +19,15 @@ import org.hibernate.Transaction;
 /**
  * A generic DAO somewhat inspired by http://rodrigouchoa.wordpress.com
  *
+ * @param <T> the type parameter
  */
 public class GenericDAO<T> {
 
     private Class<T> type;
     private final Logger logger = LogManager.getLogger(this.getClass());
+    /**
+     * The Session factory.
+     */
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
 
@@ -56,8 +60,10 @@ public class GenericDAO<T> {
 
     /**
      * Gets an entity by id
-     * @param id entity id to search by
-     * @return entity
+     *
+     * @param <T> the type parameter
+     * @param id  entity id to search by
+     * @return entity by id
      */
     public <T> T getById(int id) {
         Session session = getSession();
@@ -90,6 +96,12 @@ public class GenericDAO<T> {
     }
 
 
+    /**
+     * Get facts by animal id list.
+     *
+     * @param id the id
+     * @return the list
+     */
     public List<Fact> getFactsByAnimalId(int id){
         return null;
     }

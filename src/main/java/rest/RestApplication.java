@@ -4,6 +4,9 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.*;
 
+/**
+ * The type Rest application.
+ */
 @ApplicationPath("/animals")
 
 public class RestApplication extends Application {

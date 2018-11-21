@@ -120,7 +120,7 @@
         </tr>
         <tr>
             <td class="text-secondary">
-                <div>
+                <div style="overflow: auto;  width: 40em;">
                     ${randomAnimalXML}
                 </div>
             </td>
@@ -152,7 +152,7 @@
         </tr>
         <tr>
             <td class="text-secondary">
-                <div>
+                <div style="overflow: auto;  width: 40em;">
                     ${randomAnimalFactXML}
                 </div>
             </td>
@@ -184,7 +184,7 @@
         </tr>
         <tr>
             <td class="text-secondary">
-                <div>
+                <div style="overflow: auto;  width: 40em;">
                     ${allAnimalFactsXML}
                 </div>
             </td>
@@ -194,6 +194,7 @@
             <td>
                 <form action="searchAnimal">
                     <input type="number"
+                           min="1"
                            name="animalSearchId01"
                            id="animalSearchId01"
                            placeholder="1" />
@@ -204,7 +205,7 @@
         </tr>
         <tr>
             <td class="text-secondary">
-                <div>
+                <div >
                     ${animalFactsByIdJSON}
                 </div>
             </td>
@@ -214,6 +215,7 @@
             <td>
                 <form action="searchAnimal">
                     <input type="number"
+                           min="1"
                            name="animalSearchId02"
                            id="animalSearchId02"
                            placeholder="1" />
@@ -224,7 +226,7 @@
         </tr>
         <tr>
             <td class="text-secondary">
-                <div>
+                <div style="overflow: auto;  width: 40em;">
                     ${animalFactsByIdXML}
                 </div>
             </td>
