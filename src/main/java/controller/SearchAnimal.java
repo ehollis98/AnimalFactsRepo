@@ -113,13 +113,9 @@ public class SearchAnimal extends HttpServlet {
         else if (req.getParameter("submit").equals("getAnimalFactsByIdXML")) {
             logger.info("Getting animal facts by id as XML.");
 
-            target = client.target("http://18.219.184.166:8080/animalFacts/animals/" + Integer.parseInt(req.getParameter("animalSearchId02")) + "/xml");
-            //todo fix this so it returns an XML object, not string
-            String response = target.request(MediaType.APPLICATION_XML).get(String.class);
-            Client client = ClientBuilder.newClient();
+            target = client.target("http://18.219.184.166:8080/animalFacts/animals/" + Integer.parseInt(req.getParameter("animalSearchId02")+ "/xml"));
 
-            WebTarget target = client.target("http://18.219.184.166:8080/animalFacts/animals/" + Integer.parseInt(req.getParameter("animalSearchId02")) + "/xml");
-            String response = "<xmp>" + target.request(MediaType.APPLICATION_XML).get(String.class) + "</xmp>";
+            String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
             req.setAttribute("animalFactsByIdXML", response);
         }
