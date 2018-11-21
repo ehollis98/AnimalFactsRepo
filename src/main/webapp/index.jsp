@@ -15,22 +15,13 @@
 <a href="http://18.219.184.166:8080/animalFacts/random">working cloud randomfact</a>
 <br>
 <a href="http://localhost:8080/animalFacts/animals/fact/random">working local randomfact</a>
-<br>
-<br>
-<p>/animalFact/animals/fact/random</p>
-<br>
-<p>/animalFact/animals/fact/all</p>
-<br>
-<p>/animalFact/animals/fact/{animalID}</p>
-<br>
-<p>/animalFact/animals/dropdown</p>
 
 
 <br />
 
 <div class="container">
     <h2>Method URLs</h2>
-    <p><b>Base:</b>http://18.219.184.166:8080/animalFacts</p>
+    Base:<a href="http://18.219.184.166:8080/animalFacts">http://18.219.184.166:8080/animalFacts</a>
     <table class="table">
         <thead>
         <tr>
@@ -42,22 +33,47 @@
         <tbody>
         <tr>
             <td>Get Random Animal</td>
-            <td>/random</td>
+            <td><a href="/animalFacts/animals/dropdown">http://18.219.184.166:8080/animalFacts/animals/dropdown  </a></td>
+            <td>Returns a random animal as a JSON object.</td>
+        </tr>
+        <tr>
+            <td>Get Random Animal</td>
+            <td><a href="/animalFacts/animals/random">http://18.219.184.166:8080/animalFacts/animals/random</a></td>
             <td>Returns a random animal as a JSON object.</td>
         </tr>
         <tr class="active">
-            <td>Get Random Fact</td>
-            <td>/animals/fact/random</td>
-            <td>Returns a random fact.</td>
+            <td>Get Random Animal</td>
+            <td><a href="/animalFacts/animals/random/xml">http://18.219.184.166:8080/animalFacts/animals/random/xml</a></td>
+            <td>Returns a random animal as a XML object.</td>
         </tr>
         <tr>
+            <td>Get Random Fact</td>
+            <td><a href="/animalFacts/animals/fact/random">http://18.219.184.166:8080/animalFacts/animals/fact/random</a></td>
+            <td>Returns a random fact.</td>
+        </tr>
+        <tr >
+            <td>Get Random Fact</td>
+            <td><a href="/animalFacts/animals/fact/random/xml">http://18.219.184.166:8080/animalFacts/animals/fact/random/xml</a></td>
+            <td>Returns a random fact.</td>
+        </tr>
+        <tr class="active">
             <td>Get All Facts</td>
-            <td>/animals/fact/all</td>
+            <td><a href="/animalFacts/animals/fact/all">http://18.219.184.166:8080/animalFacts/animals/fact/all</a></td>
             <td>Returns all facts.</td>
         </tr>
         <tr class="active">
+            <td>Get All Facts</td>
+            <td><a href="/animalFacts/animals/fact/all/xml">http://18.219.184.166:8080/animalFacts/animals/fact/all/xml</a></td>
+            <td>Returns all facts.</td>
+        </tr>
+        <tr>
             <td>Get Facts by Animal ID</td>
-            <td>/animals/fact/{animalID}</td>
+            <td><a href="/animalFacts/animals/100">http://18.219.184.166:8080/animalFacts/animals/{animalID}</a></td>
+            <td>Accepts a parameter of animal id, and returns all facts for animal.</td>
+        </tr>
+        <tr>
+            <td>Get Facts by Animal ID</td>
+            <td><a href="/animalFacts/animals/100/xml">http://18.219.184.166:8080/animalFacts/animals/{animalID}/xml</a></td>
             <td>Accepts a parameter of animal id, and returns all facts for animal.</td>
         </tr>
         </tbody>

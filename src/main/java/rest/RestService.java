@@ -71,7 +71,7 @@ public class RestService {
         output += "<name>"+ animal.getAnimal() +"</name>";
         output += "<fact>" + fact.getFact() + "</fact>";
         output+= "</animal>";
-        output +="<root>";
+        output +="</root>";
         logger.debug("Output " + output);
         return Response.status(200).entity(output).build();
     }
@@ -178,12 +178,12 @@ public class RestService {
         logger.debug("Animal " + animal.getAnimal());
 
         String output ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-
+        output +="<root>";
         output +="<animal>";
         output += "<name>"+ animal.getAnimal() +"</name>";
         output += formatFactsXml(animal.getFact());
         output+= "</animal>";
-
+        output +="</root>";
         logger.debug("Output " + output);
         return Response.status(200).entity(output).build();
     }

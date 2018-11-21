@@ -9,9 +9,10 @@
 |11/18/18| Index.jsp updates| 0.5 | |
 |11/19/18| Dependencies updated, worked on/fixed compatibility issues between projects, formatted JSON return, | 3 | |
 |11/20/18| Index.jsp updated to function with controller servlet, log4j statements included, bug fixing | 2 | |
-
-
-
+|11/20/18| rest json updates| 2 | |
+|11/20/18| rest xml updates| 2 | |
+|11/20/18| Index.jsp updates| 0.5 | |
+|11/20/18| uploaded to AWS| 0.5 | |
 
 
 

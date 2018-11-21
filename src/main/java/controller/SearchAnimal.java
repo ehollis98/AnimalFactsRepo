@@ -50,7 +50,7 @@ public class SearchAnimal extends HttpServlet {
 
             Client client = ClientBuilder.newClient();
             WebTarget target =
-                    client.target("http://18.219.184.166:8080/animalFacts/random");
+                    client.target("http://18.219.184.166:8080/animalFacts/animals/random");
             String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
             System.out.println("response: " + response);
 /*
